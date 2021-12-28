@@ -16,7 +16,7 @@ function App() {
           target='_blank'
           rel='noopener noreferrer'
         >
-          Hello from admin-frontend!
+          Hello from admin-frontend
         </a>
       </header>
     </div>
