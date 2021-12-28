@@ -48,6 +48,6 @@ docker build -f Dockerfile.dev .
 docker run -p 5001:5001 -it <id>
 ```
 
-visit localhost:5001 to view the client-backend app
+visit http://0.0.0.0:5001 to view the client-backend app
 
 ---
