@@ -2,7 +2,7 @@ import express, { Express, Request, Response } from "express";
 const app: Express = express();
 import cors from "cors";
 import { ApolloServer, gql } from "apollo-server-express";
-import { typeDef as typeDefs, resolvers } from "./schema/image";
+import schema from "./graph";
 app.use(express.json());
 
 const allowedOrigins = ["http://localhost:3000"];
@@ -13,9 +13,7 @@ const init = async () => {
   };
 
   const server: ApolloServer = new ApolloServer({
-    typeDefs,
-    resolvers,
-    introspection: true,
+    schema,
   });
 
   await server.start();
