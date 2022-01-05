@@ -2,8 +2,13 @@ version: '3'
 services:
   postgres:
     image: 'postgres:latest'
+    restart: always
     environment:
+      - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres_password
+      - POSTGRES_DB=framoepedia
+    ports:
+      - '5432:5432'
   admin-backend:
     restart: always
     build:
