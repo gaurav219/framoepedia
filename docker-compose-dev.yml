@@ -1,5 +1,9 @@
 version: '3'
 services:
+  postgres:
+    image: 'postgres:latest'
+    environment:
+      - POSTGRES_PASSWORD=postgres_password
   admin-backend:
     restart: always
     build:
@@ -39,3 +43,14 @@ services:
       - ./client-frontend:/app
     ports:
       - '3001:3000'
+  storage-broker:
+    build:
+      context: ./storage-broker
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /app/node_modules
+      - ./storage-broker:/app
+    ports:
+      - '5005:5005'
+    environment:
+      - DATABASE_URL="postgresql://postgres:postgres_password@localhost:5432/framoepedia?schema=public"
