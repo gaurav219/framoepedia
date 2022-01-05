@@ -1,0 +1,17 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://postgres:postgres_password@localhost:5432/framoepedia?schema=public"
+}
+
+model Image {
+  id     Int     @id @default(autoincrement())
+  url    String
+  title  String  @db.VarChar(255) 
+}
