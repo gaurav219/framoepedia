@@ -1,17 +1,13 @@
-import express, { Express, Request, Response } from "express";
+import express, { Express, Request, Response } from 'express';
 const app: Express = express();
-import cors from "cors";
-import { ApolloServer, gql } from "apollo-server-express";
-import schema from "./graph";
+import cors from 'cors';
+import { ApolloServer, gql } from 'apollo-server-express';
+import schema from './graph';
 app.use(express.json());
 
-const allowedOrigins = ["http://localhost:3000"];
+app.use(cors());
 
 const init = async () => {
-  const options: cors.CorsOptions = {
-    origin: allowedOrigins,
-  };
-
   const server: ApolloServer = new ApolloServer({
     schema,
   });
@@ -20,18 +16,18 @@ const init = async () => {
 
   server.applyMiddleware({ app });
 
-  app.use(cors(options));
+  app.use(cors());
 
-  app.get("/", (req: Request, res: Response) => {
-    res.send("<h1>Hello from admin-backend</h1>");
+  app.get('/', (req: Request, res: Response) => {
+    res.send('<h1>Hello from admin-backend</h1>');
   });
 
-  app.get("/home", (req: Request, res: Response) => {
-    res.json({ name: "gopuuuuuuu" });
+  app.get('/home', (req: Request, res: Response) => {
+    res.json({ name: 'gopuuuuuuu' });
   });
 
   app.listen(5000, () => {
-    console.log("Listening to port 5000... and graphql at /graphql");
+    console.log('Listening to port 5000... and graphql at /graphql');
   });
 };
 

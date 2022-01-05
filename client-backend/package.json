@@ -4,10 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "tsc --watch",
-    "compile": "tsc && node dist/index.js",
-    "dev": "nodemon dist/index.js",
-    "dev:parallel": "nodemon --watch src/ --exec \"yarn compile\" --verbose -e ts ",
+    "start": "tsc && node dist/index.js",
+    "dev": "ts-node-dev src/index.ts",
     "build": "rimraf ./dist && tsc -p .",
     "clean": "rimraf ./dist"
   },
@@ -23,7 +21,7 @@
   "devDependencies": {
     "@types/hapi__hapi": "*",
     "@types/node": "*",
-    "nodemon": "^2.0.15",
-    "typescript": "^4.5.4"
+    "typescript": "^4.5.4",
+    "ts-node-dev": "^1.1.8"
   }
 }
