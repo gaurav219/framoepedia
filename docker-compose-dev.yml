@@ -9,6 +9,8 @@ services:
       - POSTGRES_DB=framoepedia
     ports:
       - '5432:5432'
+    volumes:
+      - $PWD/data:/var/lib/postgresql/data
   admin-backend:
     restart: always
     build:
@@ -59,3 +61,10 @@ services:
       - '5005:5005'
     environment:
       - DATABASE_URL="postgresql://postgres:postgres_password@localhost:5432/framoepedia?schema=public"
+  nginx:
+    restart: always
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile.dev
+    ports:
+      - '4000:80'

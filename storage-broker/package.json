@@ -12,7 +12,7 @@
   "dependencies": {
     "@prisma/client": "3.7.0",
     "fastify": "^3.25.3",
-    "prisma": "^3.7.0"
+    "prisma": "3.7.0"
   },
   "devDependencies": {
     "@types/node": "^17.0.8",
