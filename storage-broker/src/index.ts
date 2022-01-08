@@ -12,7 +12,7 @@ fastify.get('/', (request, reply) => {
 });
 
 // Run the server!
-fastify.listen(5005, (err, address) => {
+fastify.listen(5005, '0.0.0.0', (err, address) => {
   if (err) throw err;
   // Server is now listening on ${address}
   console.log('Storage broker listening on PORT 5005..');

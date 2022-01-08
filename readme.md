@@ -17,7 +17,7 @@ cd client-frontend
 
 ```shell
 docker build -f Dockerfile.dev .
-docker run -p 3001:3000 -it <id>
+docker run -p 3001:3001 -it <id>
 ```
 
 visit localhost:3001 to view the client-frontend app
