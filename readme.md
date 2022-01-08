@@ -17,7 +17,7 @@ cd client-frontend
 
 ```shell
 docker build -f Dockerfile.dev .
-docker run -p 3001:3001 -it <id>
+docker run -p 3001:3000 -it <id>
 ```
 
 visit localhost:3001 to view the client-frontend app
@@ -62,5 +62,18 @@ docker run -p 5005:5005 -it <id>
 ```
 
 visit http://localhost:5005 to view the storage-broker app
+
+---
+
+## Starting NGINX using Dockerfile only
+
+cd nginx
+
+```shell
+docker build -f Dockerfile.dev .
+docker run -p 4000:80 -it <id>
+```
+
+visit http://localhost:4000 to view the NGINX app
 
 ---

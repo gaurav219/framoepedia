@@ -1,8 +1,8 @@
-import { gql } from "@apollo/client";
+import { gql } from '@apollo/client';
 
 const getImages = gql`
   {
-    image {
+    images {
       id
       url
       title
