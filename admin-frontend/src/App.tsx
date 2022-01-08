@@ -1,15 +1,15 @@
-import logo from "./logo.svg";
-import "./App.css";
-import { useQuery } from "@apollo/client";
-import imageQuery from "./queries/image";
-import { Images } from "./interfaces/Image";
+import logo from './logo.svg';
+import './App.css';
+import { useQuery } from '@apollo/client';
+import imageQuery from './queries/image';
+import { Images } from './interfaces/Image';
 
 function App() {
   const { loading, error, data } = useQuery<Images>(imageQuery);
-  console.log(error, "er");
+  console.log(error, 'er');
 
   return (
-    <div className="App">
+    <div className='App'>
       {error ? (
         <p>"{error.message}</p>
       ) : loading || !data ? (
@@ -26,18 +26,18 @@ function App() {
         ))
       )}
 
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+      <header className='App-header'>
+        <img src={logo} className='App-logo' alt='logo' />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
         <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+          className='App-link'
+          href='https://reactjs.org'
+          target='_blank'
+          rel='noopener noreferrer'
         >
-          Hello from admin-frontend
+          Hello from Admin-frontend
         </a>
       </header>
     </div>
