@@ -4,20 +4,24 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "tsc --watch",
-    "compile": "tsc && node dist/index.js",
-    "dev": "nodemon dist/index.js",
-    "dev:parallel": "nodemon --watch src/ --exec \"yarn compile\" --verbose -e ts ",
+    "start": "tsc && node dist/index.js",
+    "dev": "ts-node-dev src/index.ts",
     "build": "rimraf ./dist && tsc -p .",
     "clean": "rimraf ./dist"
   },
   "dependencies": {
-    "@hapi/hapi": "^20.2.1"
+    "@graphql-tools/merge": "^8.2.1",
+    "@graphql-tools/schema": "^8.3.1",
+    "@hapi/hapi": "^20.2.1",
+    "@types/cors": "^2.8.12",
+    "apollo-server-hapi": "^3.6.1",
+    "cors": "^2.8.5",
+    "graphql": "^16.2.0"
   },
   "devDependencies": {
-    "typescript": "^4.5.4",
-    "nodemon": "^2.0.15",
     "@types/hapi__hapi": "*",
-    "@types/node": "*"
+    "@types/node": "*",
+    "typescript": "^4.5.4",
+    "ts-node-dev": "^1.1.8"
   }
 }

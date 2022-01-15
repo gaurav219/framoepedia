@@ -4,20 +4,25 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "tsc --watch",
-    "compile": "tsc && node dist/index.js",
-    "dev": "nodemon dist/index.js",
-    "dev:parallel": "nodemon --watch src/ --exec \"yarn compile\" --verbose -e ts ",
+    "dev": "nodemon src/index.ts",
+    "start": "tsc && node dist/index.js",
     "build": "rimraf ./dist && tsc -p .",
     "clean": "rimraf ./dist"
   },
   "dependencies": {
-    "express": "^4.17.2"
+    "@types/cors": "^2.8.12",
+    "apollo-server-express": "^3.6.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "graphql": "^16.2.0",
+    "@graphql-tools/merge": "^8.2.1",
+    "@graphql-tools/schema": "^8.3.1"
   },
   "devDependencies": {
-    "typescript": "^4.5.4",
-    "nodemon": "^2.0.15",
     "@types/express": "*",
-    "@types/node": "*"
+    "@types/node": "*",
+    "nodemon": "^2.0.15",
+    "typescript": "^4.5.4",
+    "ts-node": "^10.4.0"
   }
 }

@@ -51,3 +51,29 @@ docker run -p 5001:5001 -it <id>
 visit http://0.0.0.0:5001 to view the client-backend app
 
 ---
+
+## Starting storage-broker using Dockerfile only
+
+cd client-backend
+
+```shell
+docker build -f Dockerfile.dev .
+docker run -p 5005:5005 -it <id>
+```
+
+visit http://localhost:5005 to view the storage-broker app
+
+---
+
+## Starting NGINX using Dockerfile only
+
+cd nginx
+
+```shell
+docker build -f Dockerfile.dev .
+docker run -p 4000:80 -it <id>
+```
+
+visit http://localhost:4000 to view the NGINX app
+
+---
