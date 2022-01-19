@@ -26,6 +26,8 @@ services:
       - 'storage-broker'
     volumes:
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    # networks:
+    #   - app-network
   admin-backend:
     restart: always
     build:
@@ -45,6 +47,8 @@ services:
       - ./client-backend:/app
     ports:
       - '5001:5001'
+    # networks:
+    #   - app-network
   admin-frontend:
     stdin_open: true
     build:
@@ -65,6 +69,8 @@ services:
       - ./client-frontend:/app
     ports:
       - '3001:3000'
+    # networks:
+    #   - app-network
   storage-broker:
     build:
       context: ./storage-broker
@@ -76,3 +82,7 @@ services:
       - '5005:5005'
     environment:
       - DATABASE_URL="postgresql://postgres:postgres_password@localhost:5432/framoepedia?schema=public"
+
+# networks:
+#   app-network:
+#     driver: bridge
