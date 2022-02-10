@@ -1,3 +1,9 @@
+## Creating an new create-react app when global installation of CRA fails
+
+```shell
+npx create-react-app@latest your-project-name --use-npm
+```
+
 ## Starting admin-frontend using Dockerfile only
 
 cd admin-frontend
@@ -77,3 +83,38 @@ docker run -p 4000:80 -it <id>
 visit http://localhost:4000 to view the NGINX app
 
 ---
+
+## Running all applications simultaneously using docker-compose
+
+```shell
+docker-compose -f docker-compose-dev.yml up --build
+# or
+docker-compose -f docker-compose-dev.yml up
+```
+
+## Service Level commands in shell
+
+```bash
+# Stopping a running postgres service
+systemctl stop postgresql
+```
+
+```bash
+# Starting a stopped postgres service
+systemctl start postgresql
+```
+
+```bash
+# Show status of an already running service
+systemctl status postgresql
+```
+
+```bash
+# Disable service(not auto-start any more)
+systemctl disable postgresql
+```
+
+```bash
+# enable service postgresql(auto-start)
+systemctl enable postgresql
+```
