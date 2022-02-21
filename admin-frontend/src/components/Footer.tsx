@@ -7,9 +7,7 @@ function Footer() {
       {/* <nav className="max-w mx-auto"> */}
       <div className="h-max sm flex flex-row justify-evenly items-center">
         <a className="text-white" href="/">
-          Contact Us <br></br>Contact Us Contact Us<br></br> Contact Us{" "}
-          <br></br> Contact Us Contact Us Contact Us Contact Us Contact U
-          <br></br>s Contact Us
+          Contact Us
         </a>
         <a className="text-white" href="/">
           About

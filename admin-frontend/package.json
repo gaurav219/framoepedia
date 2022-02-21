@@ -5,6 +5,8 @@
   "dependencies": {
     "@apollo/client": "^3.5.6",
     "@babel/core": "^7.16.0",
+    "@cloudinary/react": "^1.1.0",
+    "@cloudinary/url-gen": "^1.5.1",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.3",
     "@svgr/webpack": "^5.5.0",
     "@testing-library/jest-dom": "^5.14.1",
@@ -22,6 +24,7 @@
     "browserslist": "^4.18.1",
     "camelcase": "^6.2.1",
     "case-sensitive-paths-webpack-plugin": "^2.4.0",
+    "cloudinary-react": "^1.7.1",
     "css-loader": "^6.5.1",
     "css-minimizer-webpack-plugin": "^3.2.0",
     "dotenv": "^10.0.0",
