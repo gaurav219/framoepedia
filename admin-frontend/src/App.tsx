@@ -3,6 +3,7 @@ import "./App.css";
 import { useQuery } from "@apollo/client";
 import imageQuery from "./queries/image";
 import { Images } from "./interfaces/Image";
+import { config } from "dotenv";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -22,10 +23,11 @@ declare global {
 }
 
 window.cloudinary = window.cloudinary || {};
+
 function App() {
   const cloud = new Cloudinary({
     cloud: {
-      cloudName: "dqmgwrjoi",
+      cloudName: process.env.REACT_APP_CLOUD_NAME,
     },
   });
 
@@ -56,14 +58,20 @@ function App() {
 
     formData.append("file", state);
 
-    formData.append("upload_preset", "qtzokf2m");
+    formData.append(
+      "upload_preset",
+      JSON.stringify(process.env.REACT_APP_UPLOAD_PRESET)
+    );
 
     const options = {
       method: "POST",
       body: formData,
     };
 
-    fetch("https://api.cloudinary.com/v1_1/dqmgwrjoi/upload", options)
+    fetch(
+      `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUD_NAME}/upload`,
+      options
+    )
       .then((res) => res.json())
       .catch((e) => console.log(e, "message"))
       .then((res) => {
@@ -76,8 +84,8 @@ function App() {
 
   let myWidget = window.cloudinary.createUploadWidget(
     {
-      cloudName: "dqmgwrjoi",
-      uploadPreset: "qtzokf2m",
+      cloudName: "CLOUD_NAME",
+      uploadPreset: "UPLOAD_PRESET",
     },
     (error: any, result: any) => {
       if (!error && result && result.event === "success") {
