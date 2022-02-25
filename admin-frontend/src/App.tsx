@@ -1,21 +1,22 @@
-import logo from "./logo.svg";
-import "./App.css";
-import { useQuery } from "@apollo/client";
-import imageQuery from "./queries/image";
-import { Images } from "./interfaces/Image";
-import { config } from "dotenv";
+import logo from './logo.svg';
+import './App.css';
+import { useQuery } from '@apollo/client';
+import imageQuery from './queries/image';
+import { Images } from './interfaces/Image';
+import { config } from 'dotenv';
 
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import { AdvancedImage } from "@cloudinary/react";
-import { Cloudinary } from "@cloudinary/url-gen";
-import { useEffect, useState } from "react";
-import { Actions } from "@cloudinary/url-gen";
-import { thumbnail } from "@cloudinary/url-gen/actions/resize";
-import { focusOn } from "@cloudinary/url-gen/qualifiers/gravity";
-import { FocusOn } from "@cloudinary/url-gen/qualifiers/focusOn";
-import { byRadius } from "@cloudinary/url-gen/actions/roundCorners";
-import { setDefaultResultOrder } from "dns";
+import Header from './components/Header';
+import Footer from './components/Footer';
+import { Button } from '@framoepedia/ui';
+import { AdvancedImage } from '@cloudinary/react';
+import { Cloudinary } from '@cloudinary/url-gen';
+import { useEffect, useState } from 'react';
+import { Actions } from '@cloudinary/url-gen';
+import { thumbnail } from '@cloudinary/url-gen/actions/resize';
+import { focusOn } from '@cloudinary/url-gen/qualifiers/gravity';
+import { FocusOn } from '@cloudinary/url-gen/qualifiers/focusOn';
+import { byRadius } from '@cloudinary/url-gen/actions/roundCorners';
+import { setDefaultResultOrder } from 'dns';
 declare global {
   interface Window {
     cloudinary: any;
@@ -41,11 +42,11 @@ function App() {
   //   )
   //   .roundCorners(byRadius(100));
 
-  const [state, setState] = useState<any | null>("");
+  const [state, setState] = useState<any | null>('');
 
   const [pushed, setPushed] = useState<boolean>(false);
 
-  const [url, setUrl] = useState<string>("");
+  const [url, setUrl] = useState<string>('');
 
   const [image, setImage] = useState<any>({});
 
@@ -56,15 +57,15 @@ function App() {
   const handleClick = () => {
     const formData = new FormData();
 
-    formData.append("file", state);
+    formData.append('file', state);
 
     formData.append(
-      "upload_preset",
+      'upload_preset',
       JSON.stringify(process.env.REACT_APP_UPLOAD_PRESET)
     );
 
     const options = {
-      method: "POST",
+      method: 'POST',
       body: formData,
     };
 
@@ -73,23 +74,23 @@ function App() {
       options
     )
       .then((res) => res.json())
-      .catch((e) => console.log(e, "message"))
+      .catch((e) => console.log(e, 'message'))
       .then((res) => {
         console.log(res.secure_url);
         setPushed(true);
         setUrl(res.secure_url);
       })
-      .catch((e) => console.log(e, "message1"));
+      .catch((e) => console.log(e, 'message1'));
   };
 
   let myWidget = window.cloudinary.createUploadWidget(
     {
-      cloudName: "CLOUD_NAME",
-      uploadPreset: "UPLOAD_PRESET",
+      cloudName: 'CLOUD_NAME',
+      uploadPreset: 'UPLOAD_PRESET',
     },
     (error: any, result: any) => {
-      if (!error && result && result.event === "success") {
-        console.log("Done! Here is the image info: ", result.info);
+      if (!error && result && result.event === 'success') {
+        console.log('Done! Here is the image info: ', result.info);
         setImage(result);
         setPushed(true);
         setUrl(result.info.secure_url);
@@ -104,14 +105,22 @@ function App() {
   // console.log(error, "er");
   return (
     // <AdvancedImage cldImg={images} />
-    <div className="flex flex-col h-screen">
+    <div className='flex flex-col h-screen'>
       {/* <AdvancedImage cldImg={image} /> */}
       <Header />
-      <main className="flex-grow">
+      <div className='w-3/5'>
+        <Button
+          label='Common Library Button'
+          backgroundColor='black'
+          size='large'
+          primary
+        />
+      </div>
+      <main className='flex-grow'>
         <button
           onClick={openWidget}
-          id="upload_widget"
-          className="cloudinary-button"
+          id='upload_widget'
+          className='cloudinary-button'
         >
           Upload files
         </button>
@@ -129,7 +138,7 @@ function App() {
           Upload Image
         </button> */}
         {/* {pushed && <AdvancedImage cldImg={image} />} */}
-        {pushed && <img src={url} className="justify-end" />}
+        {pushed && <img src={url} className='justify-end' />}
       </main>
       <Footer />
     </div>

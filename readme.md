@@ -92,7 +92,31 @@ docker-compose -f docker-compose-dev.yml up --build
 docker-compose -f docker-compose-dev.yml up
 ```
 
-## Service Level commands in shell
+## View client frontend app after running docker-compose
+
+visit localhost:4000 to view the client-frontend app
+
+---
+
+## View admin frontend app after running docker-compose
+
+visit localhost:4000/admin to view the admin-frontend app
+
+---
+
+## View client backend app after running docker-compose
+
+visit localhost:4000/client-backend/graphql to view the client-backend app
+
+---
+
+## View admin backend app after running docker-compose
+
+visit localhost:4000/admin-backend/graphql to view the admin-backend app
+
+## Service Level commands (specific to postgres) in shell
+
+---
 
 ```bash
 # Stopping a running postgres service
@@ -118,3 +142,11 @@ systemctl disable postgresql
 # enable service postgresql(auto-start)
 systemctl enable postgresql
 ```
+
+## Handling lib/[packages] Git Submodules
+
+1. Make changes to specific lib submodules
+2. Add those changes
+3. Commit those changes
+4. Push those changes to seperate repo of submodule
+5. Update root repo with all the changes so that latest submodules changes can be referenced in main .git file
