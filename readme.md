@@ -1,3 +1,8 @@
+## Desired Architecture
+
+![wireframe-App architecture drawio](https://github.com/gaurav219/framoepedia/assets/44445154/fd29a137-a0ca-4d49-b25d-fac8bdd1f538)
+
+
 ## Starting admin-frontend using Dockerfile only
 
 cd admin-frontend
